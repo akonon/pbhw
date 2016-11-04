@@ -10,8 +10,18 @@ class Person(object):
         self.nickname = nickname
 
     def get_age(self):
-        """Calc person's age and return a full number of years"""
+        """Return person's age in years"""
+        import datetime
+
+        today = datetime.date.today()
+        year, month, day = [int(i) for i in self.birth_date.split('-')]
+        self.birth_date = datetime.date(year, month, day)
+        years_difference = today.year - self.birth_date.year
+        is_before_birthday = (today.month, today.day) < (self.birth_date.month,
+                                                         self.birth_date.day)
+        age = years_difference - int(is_before_birthday)
+        return str(age)
 
     def get_fullname(self):
-        """Get person's full name: 'surname firstname'"""
+        """Return person's full name"""
         return self.surname + ' ' + self.first_name
