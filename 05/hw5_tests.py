@@ -11,7 +11,7 @@ __date__ = "2014-11-17"
 
 import datetime
 
-from hw5_solution1 import Person
+from hw5_solution import Person
 
 
 def tests_for_hw5_solution1():
@@ -32,6 +32,6 @@ def tests_for_hw5_solution1():
 
     assert petroff.birth_date == datetime.date(1952, 01, 02)
     assert isinstance(petroff.birth_date, datetime.date)
-    assert petroff.get_age() == "62"
+    assert petroff.get_age() == "64"
 
     print 'All is Ok!'
