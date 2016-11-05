@@ -3,15 +3,12 @@
 class Person(object):
     """Represents an entry in a contact list"""
 
-    def __init__(self, surname, first_name, birth_str, nickname=None):
-        import datetime
+    def __init__(self, surname, first_name, birth_date, nickname=None):
+        from datetime import datetime
 
         self.surname = surname
         self.first_name = first_name
-
-        year, month, day = [int(i) for i in birth_str.split('-')]
-        self.birth_date = datetime.date(year, month, day)
-
+        self.birth_date = datetime.strptime(birth_date, '%Y-%m-%d').date()
         if nickname:
             self.nickname = nickname
 
