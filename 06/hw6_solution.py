@@ -12,7 +12,9 @@
 
 # На выходе получить файл, расширенный указанным образом.
 
+import csv
 
+from hw5_solution import Person
 
 
 
