@@ -8,7 +8,7 @@ u"""
 """
 
 
-from hw6_solution1 import modifier
+from hw6_solution import modifier
 
 
 def runner():

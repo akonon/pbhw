@@ -30,8 +30,8 @@ class Person(object):
 
 
 def modifier(fname):
-    """Add fullname and age columns to CSV data and save a new CSV file."""
-    import csv
+    """Add fullname and age columns to CSV data in a file."""
+    import csv, os
 
     fhand = open(fname, 'rb')
     dictreader = csv.DictReader(fhand)
@@ -48,14 +48,4 @@ def modifier(fname):
         writer.writerow(new_row)
     fhand.close()
     fout.close()
-
-
-
-
-
-
-
-
-
-
-
+    os.rename('new_'+fname, fname)
