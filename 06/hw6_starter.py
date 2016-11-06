@@ -13,9 +13,9 @@ from hw6_solution1 import modifier
 
 def runner():
     u"""Запускает выполнение всех задач"""
-    print "Modifying file..."
-    modifier("data.csv")
-    print "Modified successfully!"
+    print 'Modifying file...'
+    modifier('data.csv')
+    print 'Modified successfully!'
 
 
 if __name__ == '__main__':
