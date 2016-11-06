@@ -12,10 +12,13 @@ def modifier(fname):
     fhand = open(fname, 'r')
     dictreader = csv.DictReader(fhand)
     fout = open('temp', 'w')
-    columns = ['id', 'surname', 'name', 'fullname',
-               'birthdate', 'nickname', 'age']
-    writer = csv.DictWriter(fout, fieldnames=columns)
+
+    fields = dictreader.fieldnames[:]
+    fields.insert(3, 'fullname')
+    fields.append('age')
+    writer = csv.DictWriter(fout, fieldnames=fields)
     writer.writeheader()
+
     for row in dictreader:
         surname = row['surname']
         first_name = row['name']
@@ -25,6 +28,7 @@ def modifier(fname):
         row['fullname'] = person.get_fullname()
         row['age'] = person.get_age()
         writer.writerow(row)
+
     fhand.close()
     fout.close()
     os.rename('temp', fname)
